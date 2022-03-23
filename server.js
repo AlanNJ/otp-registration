@@ -4,6 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const registerUser = require("./controllers/registerUser");
 require("dotenv").config();
+const otpVerification = require("./controllers/otpVerification");
 
 const app = express();
 mongoose
@@ -16,3 +17,4 @@ app.use(urlencoded({ extended: true }));
 app.use(cors({ origin: "*" }));
 app.listen(process.env.PORT, () => console.log("server running on port 5000"));
 app.use("/auth", registerUser);
+app.use("/login", otpVerification);
