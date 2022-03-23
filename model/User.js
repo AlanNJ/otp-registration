@@ -1,14 +1,10 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose.Schema;
+const { Schema } = mongoose;
 
 const userSchema = new Schema(
 	{
 		number: {
-			typeof: Number,
-			required: true,
-		},
-		otp: {
-			typeof: Number,
+			type: Number,
 			required: true,
 		},
 	},
@@ -16,9 +12,9 @@ const userSchema = new Schema(
 
 	{
 		createdAt: {
-			typeof: Date,
+			type: Date,
 			default: Date.now(),
 		},
 	}
 );
-module.exports = mongoose.exports("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
